@@ -2,7 +2,14 @@
   "name": "learningplaywrightfundamentals3x_rahul",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:example": "playwright test tests/example.spec.ts",
+    "test:tta": "playwright test tests/tta.spec.ts",
+    "test:headed": "playwright test --headed",
+    "run:normal": "ts-node tests/normal_pw.spec.ts",
+    "report": "playwright show-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -10,6 +17,8 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.63.0",
-    "@types/node": "^26.6.2"
+    "@types/node": "^26.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }

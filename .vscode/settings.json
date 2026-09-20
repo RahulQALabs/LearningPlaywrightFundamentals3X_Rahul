@@ -1,0 +1,8 @@
+{
+  "code-runner.executorMap": {
+    "typescript": "npx ts-node $fullFileName"
+  },
+  "code-runner.executorMapByGlob": {
+    "*.spec.ts": "npx playwright test --config $workspaceRoot/playwright.config.ts $fileName"
+  }
+}
