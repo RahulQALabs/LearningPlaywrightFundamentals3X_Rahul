@@ -1,5 +1,9 @@
 import { test, expect } from '@playwright/test';
 
+
+// .ts - It's pure typescript file
+//spec.ts - spec is recognised by playwright and file type is typescript
+
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
@@ -25,6 +29,8 @@ test('viewer', async ({ page }) => {
   await page.getByRole('link', { name: 'Get started' }).click();
 
   // Expects page to have a heading with the name of Installation.
+  await expect(page).toHaveTitle("Get started");
+
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
 
