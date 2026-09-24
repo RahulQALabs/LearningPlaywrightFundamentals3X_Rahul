@@ -17,7 +17,7 @@ test.fixme('upload 2 GB file', async () => {
 });
 
 test('full regression report', async () => {
-    test.slow();
+    test.slow(); 
     console.log(test.info().timeout);     //90000 instead of 30000
 });
 
