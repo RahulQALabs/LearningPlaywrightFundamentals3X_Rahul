@@ -8,7 +8,7 @@ test('tc#1 Verify the vwo page is loaded', async ({ page }) => {
         referer: 'httpd://sdet.live'
     });
 
-    // Defalt Locators
+    // Default Locators
     //  id, name, className, Tag, Custom Locator (Via CSS selector)
 
     // Css Seclector ->  Browser - Css Engine, Help you to find the element
