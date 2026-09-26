@@ -8,7 +8,7 @@ test("Verify the title after login", async ({ page }) => {
     let userName = page.locator("#txt-username");
     let password = page.locator("#txt-password");
     let loginBtn = page.locator("#btn-login");
-    let validationMsg=page.locator(".col-sm-12.text-center h2");
+    let validationMsg = page.locator(".col-sm-12.text-center h2");
 
     await makeAppointmentBtn.click();
     await userName.fill("John Doe");
