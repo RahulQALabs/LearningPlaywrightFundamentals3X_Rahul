@@ -7,5 +7,16 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 
+# Reports & artifacts
+/allure-results/
+/allure-report/
+/tta-report/
+/reports/
+
+# Secrets - never commit real credentials or session state
+.env
+.env.*
+/user-session.json
+
 # Local tooling / agent config
 .commandcode/

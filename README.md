@@ -6,7 +6,7 @@ A hands-on Playwright + TypeScript project for learning end-to-end test automati
 
 - [Playwright Test](https://playwright.dev/) `^1.63.0`
 - [TypeScript](https://www.typescriptlang.org/) with Node.js types
-- HTML reporter for test results
+- Reporters: `line`, [Allure](https://allurereport.org/), and a custom TTA HTML report (`utils/CustomReporter.ts`)
 
 ## Prerequisites
 
@@ -65,11 +65,17 @@ During setup choose:
 ```
 LearningPlaywrightFundamentals3X_Rahul/
 ├── tests/
-│   ├── example.spec.ts     # Basic Playwright example tests
-│   └── tta.spec.ts         # Testing Academy practice test (codegen-generated)
-├── playwright.config.ts    # Playwright configuration (testDir, reporter, browsers)
-├── tsconfig.json           # TypeScript configuration
-├── package.json            # Project dependencies and metadata
+│   ├── 01_Basics/               # core Playwright API - contexts, BCP, options, TTA
+│   ├── 02_TestAnnotations/      # skip / only / fail / fixme / slow
+│   ├── 03_Locator_Commands/     # CSS + XPath locators, referer, getByRole
+│   ├── 04_Session_Storage/      # save a logged-in session, reuse via storageState
+│   ├── 05_Allure_Reporting/     # Allure + custom TTA report w/ screenshots, video, trace
+│   ├── 06_... → 23_...          # placeholders for later lessons
+├── utils/CustomReporter.ts      # custom TTA HTML reporter
+├── ai/                          # RCA + flaky-analyzer helpers used by the reporter
+├── playwright.config.ts         # Playwright configuration (testDir, reporters, browsers)
+├── tsconfig.json                # TypeScript configuration
+├── package.json                 # Project dependencies and scripts
 └── README.md
 ```
 
@@ -79,23 +85,67 @@ Key settings in `playwright.config.ts`:
 
 - `testDir: './tests'` — where spec files live
 - `fullyParallel: true` — run tests in parallel
-- `reporter: 'html'` — generates an HTML report
+- `reporter: ["line", "allure-playwright", "./utils/CustomReporter.ts"]` — terminal + Allure + custom TTA HTML report
 - `trace: 'on-first-retry'` — captures a trace when a test is retried
 - `headless: false` — opens a visible browser window (useful for learning/debugging)
 - One project configured: **chromium** (Desktop Chrome)
 
+### Tutorial environments (04 & 05)
+
+Tutorials `04_Session_Storage` and `05_Allure_Reporting` drive a real login, so each keeps
+its **own** `.env` and reads only that file:
+
+```
+tests/04_Session_Storage/.env     # VWO_USER / VWO_PASS
+tests/05_Allure_Reporting/.env    # VWO_USER / VWO_PASS
+```
+
+Copy the example and fill in your own credentials before running them:
+
+```bash
+cp tests/04_Session_Storage/.env_example tests/04_Session_Storage/.env
+cp tests/05_Allure_Reporting/.env_example tests/05_Allure_Reporting/.env
+```
+
+Both `.env` files and `user-session.json` are git-ignored — never commit real credentials
+or saved session state.
+
 ## Running Tests
 
-Run the full suite (headless configured in config):
+Run the full suite (`headless: false` per the config):
 
 ```bash
 npx playwright test
 ```
 
+Run **only one tutorial** — each tutorial folder has its own script, so you never have to
+run the others:
+
+```bash
+npm run 01     # tests/01_Basics
+npm run 02     # tests/02_TestAnnotations
+npm run 03     # tests/03_Locator_Commands
+npm run 04     # tests/04_Session_Storage
+npm run 05     # tests/05_Allure_Reporting
+```
+
+Refresh a saved login session (writes `user-session.json`, required by 04/05):
+
+```bash
+npm run session:04
+npm run session:05
+```
+
+List every test Playwright can see (no browser launched):
+
+```bash
+npm run list
+```
+
 Run a single spec file:
 
 ```bash
-npx playwright test tests/tta.spec.ts
+npx playwright test tests/01_Basics/04_tta.spec.ts
 ```
 
 Run in headed mode (watch the browser):
@@ -124,16 +174,20 @@ npx playwright test --ui
 
 ## Viewing Reports
 
-After a run, open the HTML report:
+The custom TTA HTML report is written on every run — open the latest one at
+`tta-report/index.html` (or browse history in `tta-report/history.html`). It includes the
+screenshot / video / trace captured per test.
+
+Allure results can be viewed with:
 
 ```bash
-npx playwright show-report
+npm run allure:report
 ```
 
-Traces for failed/retried tests can be opened from the report, or with:
+Traces can also be opened directly with:
 
 ```bash
-npx playwright show-trace <path-to-trace.zip>
+npx playwright show-trace tta-report/traces/trace_1.zip
 ```
 
 ## Codegen (Recording Tests)
@@ -184,13 +238,13 @@ Codegen generates test code by recording your interactions in a real browser —
 
 ### Example: generating the test in this repo
 
-`tests/tta.spec.ts` was created with codegen, e.g.:
+`tests/01_Basics/04_tta.spec.ts` was created with codegen, e.g.:
 
 ```bash
 npx playwright codegen https://app.thetestingacademy.com/playwright/multiple_element_filter
 ```
 
-Then the recorded steps were saved into `tests/tta.spec.ts`.
+Then the recorded steps were saved into `tests/01_Basics/04_tta.spec.ts`.
 
 ## Troubleshooting
 

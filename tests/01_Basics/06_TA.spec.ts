@@ -6,7 +6,7 @@ import { test, expect } from "@playwright/test";
 
 test("Navigating to the TTA website", async ({ page }) => {
     // async applied on the functions whether await applies on the statement
-    page.goto("https://app.thetestingacademy.com/playwright/");
+    await page.goto("https://app.thetestingacademy.com/playwright/");
 })
 
 test("BCP - in app.vwo.com two roles", async ({ browser }) => {

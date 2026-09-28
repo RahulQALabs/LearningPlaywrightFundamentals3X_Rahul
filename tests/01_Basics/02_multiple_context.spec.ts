@@ -1,6 +1,10 @@
+import { test } from "@playwright/test";
 import { chromium } from "playwright";
 
-async function multiUser() {
+// Manual Browser -> Context -> Page, launched by hand (no fixtures).
+// Two contexts = two fully isolated sessions (separate cookies/storage).
+
+test("multi user - two isolated contexts", async () => {
 
     let browser = await chromium.launch({ headless: false });
 
@@ -10,8 +14,7 @@ async function multiUser() {
     await adminPage.goto("https://app.vwo.com/login");
     console.log("Admin on login page");
 
-    //Viewer
-    //Admin
+    //Viewer - a separate context, so it does NOT share the admin's session
     let viewerContext = await browser.newContext();
     let viewerPage = await viewerContext.newPage();
     await viewerPage.goto("https://app.vwo.com/login");
@@ -21,6 +24,4 @@ async function multiUser() {
     await viewerContext.close();
     await browser.close();
 
-}
-
-
+});

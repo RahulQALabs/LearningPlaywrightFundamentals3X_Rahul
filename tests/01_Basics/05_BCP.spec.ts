@@ -1,8 +1,9 @@
+import { test } from "@playwright/test";
 import { chromium, Browser, BrowserContext, Page } from "playwright";
 
 //Page provides methods to interact with a single tab in a Browser, or an extension background page in Chromium. One Browser instance might have multiple Page instances.
 
-async function run() {
+test("BCP - browser, context, page lifecycle", async () => {
 
     //Level 1 : Launch browser - heaviest operation, do it once
     let browser: Browser = await chromium.launch({ headless: false });
@@ -20,4 +21,4 @@ async function run() {
     await page.close();
     await context.close();
     await browser.close();
-}
+});

@@ -25,6 +25,6 @@ test('mobile context with options', async ({ browser }) => {
 
     const context = await browser.newContext(iPhone);
     const page = await context.newPage();
-    await page.goto("");
+    await page.goto("https://app.thetestingacademy.com/playwright/");
     await context.close();
 });

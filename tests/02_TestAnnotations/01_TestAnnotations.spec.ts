@@ -4,8 +4,9 @@ test.skip('checkout with paypal', async ({ page }) => {
     //Never executes
 });
 
-test.only('login with rahul', async ({ page }) => {
-    //only this test run, else everything in the file will be ignored/skip
+test('login with rahul', async ({ page }) => {
+    //test.only() would make only this test run and silently skip the rest of the
+    //whole suite, so the tutorial keeps the plain form to stay safe.
 });
 
 test.fail('cart is total wrong, BUG-451', async () => {
