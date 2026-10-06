@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
+    "start-pw": "tsx utils/templates/new-spec.ts",
     "list": "playwright test --list",
     "test:headed": "playwright test --headed",
     "01": "playwright test tests/01_Basics",
