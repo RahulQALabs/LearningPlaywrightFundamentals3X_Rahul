@@ -185,40 +185,61 @@ class CustomTTAReporter implements Reporter {
             const duration = step.duration ? `(${step.duration}ms)` : '';
             const status = step.error ? '❌' : '✅';
             console.log(`   ${status} ${step.title} ${duration}`);
-
-            const testStartTime = this.testStartTimeMap.get(test.id) || Date.now();
-            const stepCounter = this.testStepCounterMap.get(test.id) || 0;
-            const testSteps = this.testStepsMap.get(test.id) || [];
-
-            const stepStartTime = new Date(step.startTime).getTime();
-            const videoStartTime = stepStartTime - testStartTime;
-            const videoEndTime = videoStartTime + (step.duration || 0);
-
-            const stepData: StepData = {
-                title: step.title,
-                category: step.category,
-                duration: step.duration || 0,
-                status: step.error ? 'failed' : 'passed',
-                startTime: new Date(step.startTime).toLocaleTimeString(),
-                error: step.error?.message,
-                stackTrace: step.error?.stack,
-                consoleLogs: [],
-                stepIndex: stepCounter,
-                videoStartTime: Math.max(0, videoStartTime),
-                videoEndTime: Math.max(0, videoEndTime),
-            };
-            testSteps.push(stepData);
-            this.testStepsMap.set(test.id, testSteps);
-            this.testStepCounterMap.set(test.id, stepCounter + 1);
-
-            const runningTest = this.runningTests.get(test.id);
-            if (runningTest) {
-                runningTest.steps = [...testSteps];
-                this.runningTests.set(test.id, runningTest);
-            }
-
-            this.updateReportRealTime();
         }
+
+        if (!this.isReportableStep(step)) {
+            return;
+        }
+
+        const testStartTime = this.testStartTimeMap.get(test.id) || Date.now();
+        const stepCounter = this.testStepCounterMap.get(test.id) || 0;
+        const testSteps = this.testStepsMap.get(test.id) || [];
+
+        const stepStartTime = new Date(step.startTime).getTime();
+        const videoStartTime = stepStartTime - testStartTime;
+        const videoEndTime = videoStartTime + (step.duration || 0);
+
+        const stepData: StepData = {
+            title: step.title,
+            category: step.category,
+            duration: step.duration || 0,
+            status: step.error ? 'failed' : 'passed',
+            startTime: new Date(step.startTime).toLocaleTimeString(),
+            error: step.error?.message,
+            stackTrace: step.error?.stack,
+            consoleLogs: [],
+            stepIndex: stepCounter,
+            videoStartTime: Math.max(0, videoStartTime),
+            videoEndTime: Math.max(0, videoEndTime),
+        };
+        testSteps.push(stepData);
+        this.testStepsMap.set(test.id, testSteps);
+        this.testStepCounterMap.set(test.id, stepCounter + 1);
+
+        const runningTest = this.runningTests.get(test.id);
+        if (runningTest) {
+            runningTest.steps = [...testSteps];
+            this.runningTests.set(test.id, runningTest);
+        }
+
+        this.updateReportRealTime();
+    }
+
+    // Playwright reports its own API calls (page.goto, locator.click), expect
+    // calls, hooks and fixture setup as steps too. Record the ones that describe
+    // what the test actually did, and drop the fixture plumbing ("Create
+    // context", "Close context") that is nested under the before/after hooks.
+    private isReportableStep(step: TestStep): boolean {
+        if (step.category === 'fixture') {
+            return false;
+        }
+
+        const titlePath = step.titlePath();
+        if (titlePath.length === 1) {
+            return true;
+        }
+
+        return titlePath[0] !== 'Before Hooks' && titlePath[0] !== 'After Hooks';
     }
 
     onTestEnd(test: TestCase, result: TestResult): void {
