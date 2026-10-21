@@ -1,6 +1,6 @@
 import { test, expect, Locator, FrameLocator } from "@playwright/test";
 
-test('Verify Frame', async ({ page }) => {
+test('Verify Multi Frame', async ({ page }) => {
 
     await page.goto("https://app.thetestingacademy.com/playwright/frames/multi-frames");
 

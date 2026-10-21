@@ -29,7 +29,7 @@ test('Verify Custom dropdown', async ({ page }) => {
     //⑤ Async — fetched on type
     await page.locator('#rs-async').click();
     await page.getByTestId('rs-async-input').fill('del');
-    expect(page.getByTestId('rs-async-menu')).toContainText('Pune');
+    await expect(page.getByTestId('rs-async-menu')).toContainText('Pune');
     await page.getByRole('option', { name: 'delhi', exact: false }).click();
 
     await page.pause();
