@@ -19,11 +19,18 @@ test('Verify Web Tables Part 7', async ({ page }) => {
         .filter({ hasText: "Add Employee" })
         .click();
 
+    // Shared demo: a fixed Employee Id collides with other runs, so use a unique one per run.
+    const employeeId: string = String(Date.now()).slice(-6);
+
     await page.getByPlaceholder("First Name").fill("Rahul");
     await page.getByPlaceholder("Middle Name").fill("K");
     await page.getByPlaceholder("Last Name").fill("Gupta");
-    await page.locator('.oxd-input-group', { hasText: 'Employee Id' }).locator('input').fill("008");
+    await page.locator('.oxd-input-group', { hasText: 'Employee Id' }).locator('input').fill(employeeId);
     await page.locator(".oxd-form-actions button").filter({ hasText: "Save" }).click();
+
+    // A rejected Save only shows an inline error - nothing fails on its own, so verify it went through.
+    await expect(page.locator(".oxd-input-field-error-message")).toHaveCount(0);
+    await expect(page, "Employee not saved - the Employee Id was rejected").toHaveURL(/viewPersonalDetails/, { timeout: 20000 });
 
     await page.locator(".oxd-topbar-body-nav ul li")
         .filter({ hasText: "Employee List" })
@@ -32,7 +39,7 @@ test('Verify Web Tables Part 7', async ({ page }) => {
     await expect(page.locator(".oxd-table-card").first()).toBeVisible();
 
 
-    let name: string = '997';
+    let name: string = employeeId;
     let row;
 
     while (true) {
