@@ -15,7 +15,7 @@
 
 [npmtrends.com/cypress-vs-playwright-vs-selenium-webdriver](https://npmtrends.com/cypress-vs-playwright-vs-selenium-webdriver)
 
-[image.png](images/image_Z9PL2ut1YjgNsUHPxcya5.png)
+![image.png](images/image_Z9PL2ut1YjgNsUHPxcya5.png)
 
 🟩 **Feature of Playwright**
 
@@ -72,13 +72,13 @@ Sure, let's break down the step-by-step instructions for installing Node.js, Pla
 - **Visual Studio Code** - Normal Editor ( latest +Github Copilot) / CC / OpenCode / CommandCode
 - Cursor, WindSurf, Antigravity → Coding Assistant AI Agents (Extra functionality).
 
-[image.png](images/image_4FdklNhSP9Mjb48ii4LW4.png)
+![image.png](images/image_4FdklNhSP9Mjb48ii4LW4.png)
 
 **Install the Playwright**
 
     npm init playwright@latest
 
-[image.png](images/image_o-PbAh2q_MNGk2EuddN2O.png)
+![image.png](images/image_o-PbAh2q_MNGk2EuddN2O.png)
 
 Headless → Headless basically means that a test case will run without the UI. Headless is a feature which is available when you have a heavy number of test cases. For example, when you have 2,000, 3,000, or 4,000 test cases, you cannot run them by using the UI. If you run them through the UI, the test cases will be slow. They will be very, very slow, and they will take a lot of memory. When you have more test cases, you will use headless mode. Headless basically means no browser will open, and no UI will be used.
 
@@ -89,7 +89,7 @@ please remember:
 - log
 - everything you can capture in headless
 
-[image.png](images/image_iSMJTMALvVTicYXNt3P7A.png)
+![image.png](images/image_iSMJTMALvVTicYXNt3P7A.png)
 
 ---
 
@@ -108,7 +108,7 @@ CodeGen Playwright is basically a command which will help you to open a particul
 
     plawright codegen https://app.thetestingacademy.com/playwright/ttacart/
 
-[image.png](images/image_WuoUFMpZ3tO1qmTubmfVI.png)
+![image.png](images/image_WuoUFMpZ3tO1qmTubmfVI.png)
 
 ---
 
@@ -126,9 +126,9 @@ so Playwright CLI has all the functionality that Playwright also supports. Here,
 
 ---
 
-[image.png](images/image_KTJL-Xf1uRF1isvOqwI99.png)
+![image.png](images/image_KTJL-Xf1uRF1isvOqwI99.png)
 
-[image.png](images/image_MjtWLdeZzA-eQAxQiR-GP.png)
+![image.png](images/image_MjtWLdeZzA-eQAxQiR-GP.png)
 
 ## What is Websocket?
 
@@ -137,7 +137,7 @@ so Playwright CLI has all the functionality that Playwright also supports. Here,
 - [en.wikipedia.org/wiki/Transmission_Control_Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)
 - With WebSockets, the client or server can push data to each other at any time after the initial handshake and connection setup
 
-[image.png](images/image_ZznhclnOfr1hrXbm3Yi9r.png)
+![image.png](images/image_ZznhclnOfr1hrXbm3Yi9r.png)
 
 WebDriver driver = new ChromDriver();
 
@@ -159,7 +159,7 @@ page.locator().click() - **WS1**
 4. JSON Format
 5. CDP (Rederning engines) - Chromium, Firefox, Webkits
 
-[image.png](images/image__Ys9TNH6h12c8QfILuOVv.png)
+![image.png](images/image__Ys9TNH6h12c8QfILuOVv.png)
 
 ---
 
@@ -167,11 +167,11 @@ page.locator().click() - **WS1**
 
 these are local browsers that it installs for your rendering engine
 
-[image.png](images/image_uzIcrxc8Sbtk9NK3cHroD.png)
+![image.png](images/image_uzIcrxc8Sbtk9NK3cHroD.png)
 
 ## 🟩 But does Playwright support the Real browser?
 
-[image.png](images/image_VWsyAuqJywHJu7Nhpzuuc.png)
+![image.png](images/image_VWsyAuqJywHJu7Nhpzuuc.png)
 
 ---
 
@@ -221,3 +221,7 @@ Headless --> No UI
 headless : false → want to see the UI
 
 ---
+
+## Playwright Arch
+
+![image.png](images/playwright_architecture.png)
