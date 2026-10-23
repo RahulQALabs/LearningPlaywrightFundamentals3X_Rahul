@@ -19,7 +19,6 @@ test.describe('SVG Elements', () => {
         const output = await page.locator("#shapes-output").innerText();
         expect(output).toContain('Red circle');
 
-
         await page.pause();
     });
 
