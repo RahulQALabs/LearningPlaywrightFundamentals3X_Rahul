@@ -4,7 +4,7 @@
 
 # PW Test Annotation and Locator Strategy.
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_06h_TBt31IOAFfMEgKIDW.png?ixlib=js-3.8.0)
+[image.png](images/image_06h_TBt31IOAFfMEgKIDW.png)
 
 ## Test Annonations
 
@@ -15,7 +15,7 @@
     test.fixme
     test.slow
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_0Yt6wMgNa1e6n6xtpx4ZG.png?ixlib=js-3.8.0)
+[image.png](images/image_0Yt6wMgNa1e6n6xtpx4ZG.png)
 
 ---
 
@@ -66,7 +66,7 @@ In Playwright, we have two types of locator strategy:
 
 The HTTP `Referer` header tells the server which page the user came FROM. When you click a link on Google that takes you to a website, the browser sends `Referer: https://google.com` in the request. The server knows the user came from Google.
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_6zN2HnY7Jfj51pN343_je.png?ixlib=js-3.8.0)
+[image.png](images/image_6zN2HnY7Jfj51pN343_je.png)
 
     test("navigate with custom referer", async ({ page }) => {
         // Tell the server "user came from Google"
@@ -80,9 +80,9 @@ The HTTP `Referer` header tells the server which page the user came FROM. When y
 
 ---
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_6RVIHjVtpSFQSebVIDOIi.png?ixlib=js-3.8.0)
+[image.png](images/image_6RVIHjVtpSFQSebVIDOIi.png)
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_268fETAkbr8z47KBJBfX6.png?ixlib=js-3.8.0)
+[image.png](images/image_268fETAkbr8z47KBJBfX6.png)
 
 # Locators
 
@@ -95,16 +95,16 @@ The HTTP `Referer` header tells the server which page the user came FROM. When y
 
 ## FINDING ELEMENTS ON A PAGE
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_ty9gPmtx5PA3FCn7hvZyx.png?ixlib=js-3.8.0)
+[image.png](images/image_ty9gPmtx5PA3FCn7hvZyx.png)
 
 # HTML Elements
 
 - HTML is the standard markup language for Web pages.
 - \<tagname>Content goes here...\</tagname>
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_PO5qsz0nMES8yjvrj-igc.png?ixlib=js-3.8.0)
+[image.png](images/image_PO5qsz0nMES8yjvrj-igc.png)
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_sD1yKgROjOGVzHBMD0fu2.png?ixlib=js-3.8.0)
+[image.png](images/image_sD1yKgROjOGVzHBMD0fu2.png)
 
 WebElement - **Key and Value - Attribute and Value.**
 
@@ -153,7 +153,7 @@ getByX → ID → NAME → CLASS → TAG NAME → CSS → XPATH
 
 ---
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_thmsXvYnuXE6NI0dcUREu.png?ixlib=js-3.8.0)
+[image.png](images/image_thmsXvYnuXE6NI0dcUREu.png)
 
 **What is the reason why people create a Custom attribute for QA ?**
 
@@ -239,7 +239,7 @@ There are two types of XPath which are very popular.
 - Absolute XPath
 - **Relative XPath**
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_E7dOkYmuBGytqZwr2Wzij.png?ixlib=js-3.8.0)
+[image.png](images/image_E7dOkYmuBGytqZwr2Wzij.png)
 
 **Absolute XPath -** xPath is an expression which basically contains details from **the root element**
 
@@ -268,13 +268,13 @@ Core Logic - **//tagName[@attribute ='value']**
 
     //input[@data-qa="hocewoqisi"] ->  remove the // and @ -> input[data-qa="hocewoqisi"]
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_xEGjknC91beyTkTOQtKC1.png?ixlib=js-3.8.0)
+[image.png](images/image_xEGjknC91beyTkTOQtKC1.png)
 
 **page.locator("css=button").click()** **page.locator("xpath=//button").click()**
 
 ---
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_gGyPPFkGzWBP-Wrrn7S58.png?ixlib=js-3.8.0)
+[image.png](images/image_gGyPPFkGzWBP-Wrrn7S58.png)
 
 ---
 
@@ -330,7 +330,7 @@ string-length(string): XPath string-length function return the length of string.
 
 CheatSheet - [devhints.io/xpath](https://devhints.io/xpath)
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_2u3Y-PLBZb0VoL5V6_uFa.png?ixlib=js-3.8.0)
+[image.png](images/image_2u3Y-PLBZb0VoL5V6_uFa.png)
 
 ---
 
@@ -344,16 +344,16 @@ Dynamic Element
 
 if we can find one element with another element by using the relation
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_-HELO5N5Y7Tzar7sDJBJM.png?ixlib=js-3.8.0)
+[image.png](images/image_-HELO5N5Y7Tzar7sDJBJM.png)
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_g3aWz6nwCL_NNpRXlvNRE.png?ixlib=js-3.8.0)
+[image.png](images/image_g3aWz6nwCL_NNpRXlvNRE.png)
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_sgwrQlwgRMLFBoCElSRvQ.png?ixlib=js-3.8.0)
+[image.png](images/image_sgwrQlwgRMLFBoCElSRvQ.png)
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_m549A0chrJldbuPAa9tIo.png?ixlib=js-3.8.0)
+[image.png](images/image_m549A0chrJldbuPAa9tIo.png)
 
 CSS Selectors MasterSheet
 
-[image.png](https://eraser.imgix.net/workspaces/9yp9hyBp2Yk4Z5TK4UFB/WWS31TdyovhjTB1TVo9v2jWpPei1/image_jJdkozfI-69kXBRKbsUAP.png?ixlib=js-3.8.0)
+[image.png](images/image_jJdkozfI-69kXBRKbsUAP.png)
 
 Intercom
