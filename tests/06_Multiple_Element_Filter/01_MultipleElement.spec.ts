@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test('Verify how to handle the multiple statements', async ({ page }) => {
+test('Verify multiple elements using allInnerTexts() and all()', async ({ page }) => {
 
     await page.goto("https://app.thetestingacademy.com/playwright/multiple_element_filter");
 

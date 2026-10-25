@@ -12,7 +12,7 @@ async function findRowByName(page: Page, name: string): Promise<Locator> {
     }
 }
 
-test('Verify Web Tables Part 6', async ({ page }) => {
+test('Verify Web Table pagination by finding a row by name', async ({ page }) => {
 
     await page.goto("https://app.thetestingacademy.com/playwright/tables/webtable");
     // ---- Start your code here ----

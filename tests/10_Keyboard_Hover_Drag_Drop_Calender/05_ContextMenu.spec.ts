@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test('Verify Hover Part 3', async ({ page }) => {
+test('Verify hover menu selection on context menu widget', async ({ page }) => {
 
     await page.goto("https://app.thetestingacademy.com/playwright/widgets/context-menu");
 

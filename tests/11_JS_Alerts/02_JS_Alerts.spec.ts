@@ -7,7 +7,7 @@ test.describe('JavaScript Alerts', () => {
         await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
     });
 
-    test('Java Alert accept 1', async ({ page }) => {
+    test('Verify JS Alert accept', async ({ page }) => {
 
         //In Playwright - Before click any button , first we need to register the alert dialouge
         //Difference bw once vs on
@@ -24,7 +24,7 @@ test.describe('JavaScript Alerts', () => {
         // await page.pause();
     });
 
-    test('Java Alert accept 2', async ({ page }) => {
+    test('Verify JS Confirm accept', async ({ page }) => {
         page.once('dialog', async dialog => {
             console.log('Alert type:', dialog.type());
             expect(dialog.type()).toBe('confirm');
@@ -40,7 +40,7 @@ test.describe('JavaScript Alerts', () => {
 
     });
 
-     test('Java Alert accept 3', async ({ page }) => { 
+     test('Verify JS Prompt accept with input text', async ({ page }) => { 
 
         const inputText='Hello From The Testing Academy';
          page.once('dialog', async dialog => {

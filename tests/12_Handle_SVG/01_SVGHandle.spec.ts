@@ -10,7 +10,7 @@ test.describe('SVG Elements', () => {
         await page.goto(url);
     });
 
-    test('Verify SVG elements handling', async ({ page }) => {
+    test('Verify Flipkart search using the SVG element', async ({ page }) => {
         await page.locator("input[name='q']").fill('macmini');
         const svgElement: Locator = page.locator('svg');
         await svgElement.first().click();

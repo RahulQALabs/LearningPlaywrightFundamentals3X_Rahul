@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test('Verify Web Tables Part 7', async ({ page }) => {
+test('Verify OrangeHRM employee creation and search across pagination', async ({ page }) => {
 
     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     // ---- Start your code here ----

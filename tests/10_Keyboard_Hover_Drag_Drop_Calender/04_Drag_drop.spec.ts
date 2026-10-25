@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test('Verify Hover Part 3', async ({ page }) => {
+test('Verify drag and drop between two columns', async ({ page }) => {
 
     await page.goto("https://the-internet.herokuapp.com/drag_and_drop");
 

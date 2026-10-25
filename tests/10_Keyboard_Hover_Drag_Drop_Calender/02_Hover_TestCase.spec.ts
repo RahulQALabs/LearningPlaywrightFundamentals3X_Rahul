@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test('Verify Hover', async ({ page }) => {
+test('Verify hover on SpiceJet Add-ons menu', async ({ page }) => {
 
     await page.goto("https://www.spicejet.com/");
 
