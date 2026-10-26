@@ -27,4 +27,8 @@ test("BCP - in app.vwo.com two roles", async ({ browser }) => {
     await adminPage.close();
     await userPage.close();
     await guestPage.close();
+
+    await adminContext.close();
+    await userContext.close();
+    await guestContext.close();
 })
