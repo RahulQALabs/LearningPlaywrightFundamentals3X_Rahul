@@ -1,0 +1,13 @@
+The Testing Academy — sample download
+
+This is a small placeholder file students can download from the QA Profile Form
+practice page. Use it to verify Playwright's download flow:
+
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByTestId('download-file').click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toBe('sample-download.txt');
+  await download.saveAs('downloads/sample-download.txt');
+
+Hosted at /playwright/sample-download.txt — replace contents with whatever you
+need for downstream assertions.

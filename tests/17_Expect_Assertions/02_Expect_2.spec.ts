@@ -13,6 +13,13 @@ test.describe('Scroll to Element - TestingAcademy', () => {
       expect(heading).toBeVisible();
       expect(heading).toContainText('filters', { timeout: 1000 });
 
+      const email = page.getByRole('textbox', { name: 'Email Address' });
+      await expect(email).toHaveAttribute('id', 'email');
+      await expect(email).toHaveAttribute('type', 'email');
+      await expect(email).toHaveAttribute('placeholder', 'student@thetestingacademy.com');
+
+      const footerLinks = page.locator('footer a');
+      await expect(footerLinks).toHaveCount(16);
 
    });
 
